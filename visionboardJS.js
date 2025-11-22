@@ -184,13 +184,13 @@ function ocisti() {
     }
 }
 
-// NOVA FUNKCIONALNOST: Snimi kao PDF
+
 snimiPDFBtn.addEventListener('click', () => {
     if (window.jspdf && window.jspdf.jsPDF && window.html2canvas) {
         snimiVisionBoardPDF();
     } else {
         alert("Učitavanje PDF biblioteke...");
-        // Učitaj potrebne biblioteke ako nisu već učitane
+        
         const loadScript = (src) => {
             return new Promise((resolve, reject) => {
                 const script = document.createElement('script');
@@ -213,9 +213,9 @@ snimiPDFBtn.addEventListener('click', () => {
 });
 
 function snimiVisionBoardPDF() {
-    // Koristi html2canvas da preuzme cijelu ploču kao sliku
+   
     html2canvas(ploca, {
-        scale: 2, // Veća rezolucija za bolji kvalitet
+        scale: 2, 
         useCORS: true,
         allowTaint: true,
         backgroundColor: null
@@ -225,32 +225,32 @@ function snimiVisionBoardPDF() {
         
         const imgData = canvas.toDataURL('image/png');
         
-        // Dimenzije canvas slike
+        
         const imgWidth = canvas.width;
         const imgHeight = canvas.height;
         
-        // Dimenzije PDF-a (A4 format)
+        
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = pdf.internal.pageSize.getHeight();
         
-        // Izračunaj proporcije za skaliranje
+        
         const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
         const scaledWidth = imgWidth * ratio;
         const scaledHeight = imgHeight * ratio;
         
-        // Centriraj sliku na PDF-u
+        
         const x = (pdfWidth - scaledWidth) / 2;
         const y = (pdfHeight - scaledHeight) / 2;
         
-        // Dodaj sliku u PDF
+      
         pdf.addImage(imgData, 'PNG', x, y, scaledWidth, scaledHeight);
         
-        // Dodaj datum u PDF
+      
         const datum = new Date().toLocaleDateString('bs-BA');
         pdf.setFontSize(10);
         pdf.text(`Vision Board - ${datum}`, 10, 10);
         
-        // Snimi PDF
+       
         pdf.save("vision_board.pdf");
         
         alert("Vision Board je uspješno snimljen kao PDF!");
@@ -260,7 +260,7 @@ function snimiVisionBoardPDF() {
     });
 }
 
-// Event listeneri
+
 dodajBiljeskuBtn.addEventListener('click', napraviBiljesku);
 dodajCitatBtn.addEventListener('click', napraviCitat);
 dodajSlikuBtn.addEventListener('click', napraviSliku);
@@ -278,19 +278,19 @@ const emailInput = document.getElementById("emailInput");
 const mailPosalji = document.getElementById("mailPosalji");
 const mailPonisti = document.getElementById("mailPonisti");
 
-// Funkcija za prikaz mail modala
+
 posaljiMailom.addEventListener('click', () => {
     mailModal.style.display = "block";
     emailInput.value = "";
     emailInput.focus();
 });
 
-// Funkcija za poništavanje maila
+
 mailPonisti.addEventListener('click', () => {
     mailModal.style.display = "none";
 });
 
-// Funkcija za slanje maila
+
 mailPosalji.addEventListener('click', () => {
     const email = emailInput.value.trim();
     
@@ -304,7 +304,7 @@ mailPosalji.addEventListener('click', () => {
         return;
     }
     
-    // Preuzmi Vision Board kao sliku
+   
     html2canvas(ploca, {
         scale: 2,
         useCORS: true,
@@ -313,7 +313,7 @@ mailPosalji.addEventListener('click', () => {
     }).then(canvas => {
         const slikaData = canvas.toDataURL('image/png');
         
-        // Kreiraj PDF
+        
         if (window.jspdf && window.jspdf.jsPDF) {
             const { jsPDF } = window.jspdf;
             const pdf = new jsPDF();
@@ -336,13 +336,13 @@ mailPosalji.addEventListener('click', () => {
             pdf.setFontSize(10);
             pdf.text(`Vision Board - ${datum}`, 10, 10);
             
-            // Konvertuj PDF u base64
+            
             const pdfBase64 = pdf.output('datauristring');
             
-            // Pošalji mail
+            
             posaljiEmail(email, pdfBase64, slikaData, "Vision Board");
         } else {
-            // Ako PDF nije dostupan, pošalji samo sliku
+            
             posaljiEmail(email, null, slikaData, "Vision Board");
         }
     }).catch(error => {
@@ -351,28 +351,28 @@ mailPosalji.addEventListener('click', () => {
     });
 });
 
-// Funkcija za validaciju emaila
+
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
 
-// Funkcija za slanje emaila
+
 function posaljiEmail(email, pdfData, slikaData, tip) {
     const subject = `Moj ${tip}`;
     const body = `Pozdrav!\n\nU prilogu Vam šaljem moj ${tip.toLowerCase()}.\n\nLijep pozdrav!`;
     
-    // Kreiraj mailto link
+    
     let mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
-    // Otvori email klijent
+    
     window.location.href = mailtoLink;
     
     mailModal.style.display = "none";
     alert("Email klijent je otvoren. Molimo pritisnite 'Send' da pošaljete email!");
 }
 
-// Zatvori modal kada se klikne izvan
+
 window.addEventListener("click", (e) => {
     if (e.target === mailModal) {
         mailModal.style.display = "none";

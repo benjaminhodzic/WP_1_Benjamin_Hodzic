@@ -1,11 +1,11 @@
-// Kontakt forma funkcionalnost
+
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
         contactForm.addEventListener('submit', submitForm);
         
-        // Dodaj test dugme za development (može se ukloniti u produkciji)
+
         addTestButton();
     }
 });
@@ -13,13 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
 function submitForm(event) {
     event.preventDefault();
     
-    // Preuzmi podatke iz forme
+
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
     
-    // Validacija
+
     if (!name || !email || !subject || !message) {
         alert('Molimo popunite sva obavezna polja!');
         return false;
@@ -30,13 +30,13 @@ function submitForm(event) {
         return false;
     }
     
-    // Kreiraj mailto link
+
     const mailtoLink = createMailtoLink(name, email, subject, message);
     
-    // Otvori email klijent
+
     window.location.href = mailtoLink;
     
-    // Resetuj formu nakon slanja
+
     setTimeout(() => {
         document.getElementById('contactForm').reset();
         alert('Hvala Vam na poruci! Email klijent je otvoren. Molimo pritisnite "Send" da pošaljete poruku.');
@@ -72,7 +72,7 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-// Funkcija za testiranje - automatsko popunjavanje forme
+
 function fillTestData() {
     document.getElementById('name').value = 'Test Korisnik';
     document.getElementById('email').value = 'test@example.com';
@@ -81,7 +81,7 @@ function fillTestData() {
     alert('Test podaci su popunjeni! Sada možete testirati slanje forme.');
 }
 
-// Dodaj test dugme za development
+
 function addTestButton() {
     const formActions = document.querySelector('.form-actions');
     if (formActions) {
@@ -93,11 +93,31 @@ function addTestButton() {
         testButton.onclick = fillTestData;
         formActions.appendChild(testButton);
         
-        // Dodaj samo u development okruženju
+        
         console.log('Test dugme je dodano za kontakt formu');
     }
 }
 
-// Globalna funkcija za testiranje iz konzole
+
 window.fillTestData = fillTestData;
 console.log('Kontakt forma JavaScript je učitan. Za testiranje pokrenite: fillTestData()');
+
+
+document.addEventListener('DOMContentLoaded', function() {
+                const appButtons = document.querySelectorAll('.app-nav-btn');
+                const appContainers = document.querySelectorAll('.app-container');
+                
+                appButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const appId = this.getAttribute('data-app');
+                        
+                  
+                        appButtons.forEach(btn => btn.classList.remove('active'));
+                        appContainers.forEach(container => container.classList.remove('active'));
+                        
+                        
+                        this.classList.add('active');
+                        document.getElementById(`${appId}-app`).classList.add('active');
+                    });
+                });
+            });

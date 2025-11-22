@@ -1,11 +1,11 @@
-// Inicijalizacija kada se stranica učita
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Stranica je učítana - inicijalizacija Kanban Boarda");
     
-    // Inicijaliziraj prazne kolone
+
     initColumns();
     
-    // Postavi event listenere
+
     setupEventListeners();
 });
 
@@ -20,30 +20,30 @@ function initColumns() {
 }
 
 function setupEventListeners() {
-    // Dugmad
+
     document.getElementById("dodajZadatakBtn").addEventListener("click", pokaziTaskModal);
     document.getElementById("ocistiPlocuBtn").addEventListener("click", pokaziClearModal);
     document.getElementById("posaljiMailom").addEventListener("click", pokaziMailModal);
     document.getElementById("snimiPlocuBtn").addEventListener("click", snimiSliku);
     document.getElementById("snimiPDFBtn").addEventListener("click", snimiKanbanPDF);
 
-    // Task modal
+
     document.getElementById("modalDodaj").addEventListener("click", dodajZadatak);
     document.getElementById("modalPonisti").addEventListener("click", sakrijTaskModal);
 
-    // Clear modal
+
     document.getElementById("clearDa").addEventListener("click", ocistiPlocu);
     document.getElementById("clearNe").addEventListener("click", sakrijClearModal);
 
-    // Mail modal
+
     document.getElementById("mailPosalji").addEventListener("click", posaljiEmailHandler);
     document.getElementById("mailPonisti").addEventListener("click", sakrijMailModal);
 
-    // Drag and drop
+
     setupDragAndDrop();
 }
 
-// MODAL FUNKCIJE
+
 function pokaziTaskModal() {
     console.log("Prikaz task modala");
     document.getElementById("taskModal").style.display = "block";
@@ -73,7 +73,7 @@ function sakrijMailModal() {
     document.getElementById("mailModal").style.display = "none";
 }
 
-// ZADACI
+
 function dodajZadatak() {
     const tekst = document.getElementById("taskInput").value.trim();
     if (tekst === "") {
@@ -123,7 +123,7 @@ function ocistiPlocu() {
     sakrijClearModal();
 }
 
-// DRAG AND DROP
+
 function setupDragAndDrop() {
     document.querySelectorAll(".tasks-container").forEach(container => {
         container.addEventListener("dragover", function(e) {
@@ -146,7 +146,7 @@ function setupDragAndDrop() {
     });
 }
 
-// BROJAČI
+
 function azurirajBrojace() {
     document.querySelectorAll('.column-card').forEach(column => {
         const container = column.querySelector('.tasks-container');
@@ -156,7 +156,7 @@ function azurirajBrojace() {
     });
 }
 
-// SNIMANJE
+
 function snimiSliku() {
     if (!window.html2canvas) {
         const script = document.createElement("script");
@@ -213,7 +213,7 @@ function createPDF() {
     });
 }
 
-// EMAIL
+// email
 function posaljiEmailHandler() {
     const email = document.getElementById("emailInput").value.trim();
     
@@ -242,7 +242,7 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-// ZATVARANJE MODALA
+
 window.addEventListener("click", function(e) {
     if (e.target === document.getElementById("taskModal")) sakrijTaskModal();
     if (e.target === document.getElementById("clearModal")) sakrijClearModal();

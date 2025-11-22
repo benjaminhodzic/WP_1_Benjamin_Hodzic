@@ -477,3 +477,56 @@ article {
 ::-webkit-scrollbar-thumb:hover {
     background: #a00d0e;
 }
+
+.app-container {
+                display: none;
+                margin-top: 20px;
+                padding: 20px;
+                background: #f8f9fa;
+                border-radius: 10px;
+                border: 2px solid #c30f10;
+            }
+            
+            .app-container.active {
+                display: block;
+            }
+            
+            .app-nav {
+                display: flex;
+                gap: 10px;
+                margin: 20px 0;
+                flex-wrap: wrap;
+            }
+            
+            .app-nav-btn {
+                background: #c30f10;
+                color: white;
+                padding: 12px 20px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-weight: bold;
+                transition: all 0.3s ease;
+            }
+            
+            .app-nav-btn:hover,
+            .app-nav-btn.active {
+                background: #a00d0e;
+                transform: translateY(-2px);
+            }
+            
+            .app-header {
+                text-align: center;
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #c30f10;
+            }
+            
+            /* Responsive iframe */
+            .app-iframe {
+                width: 100%;
+                height: 600px;
+                border: 2px solid #ddd;
+                border-radius: 8px;
+                background: white;
+            }

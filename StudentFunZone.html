@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <title>Kursevi IPI - Student Fun Zone</title>
         <link rel="stylesheet" href="css/izgled.css">
+        <style>
+        </style>
     </head>
     <body>
         <header>
@@ -23,17 +25,45 @@
 
         <article>
             <h2>Student Fun Zone</h2>
-            <p>Odaberite jednu igru!</p>
-            <ul>
-                <li><a href="bingo.html">Bingo</a></li>
-                <li><a href="kviz.html">Kviz</a></li>
-                <li><a href="whiteboard.html">Whiteboard</a></li>
-                <li><a href="visionboard.html">Vision Board</a></li>
-                <li><a href="kanbanBoard.html">Kanban Board</a></li>
-            </ul>
+            <p>Odaberite jednu od naših zabavnih aplikacija!</p>
+            
+            
+            <div class="app-nav">
+                <button class="app-nav-btn active" data-app="bingo">Bingo</button>
+                <button class="app-nav-btn" data-app="kviz">Kviz</button>
+                <button class="app-nav-btn" data-app="whiteboard">Whiteboard</button>
+                <button class="app-nav-btn" data-app="visionboard">Vision Board</button>
+                <button class="app-nav-btn" data-app="kanban">Kanban Board</button>
+            </div>
+
+            
+            
+
+            
+
+            <div id="whiteboard-app" class="app-container">
+                
+                
+                <iframe src="whiteboard.html" class="app-iframe" frameborder="0"></iframe>
+            </div>
+
+            <div id="visionboard-app" class="app-container">
+                
+                
+                <iframe src="visionboard.html" class="app-iframe" frameborder="0"></iframe>
+            </div>
+
+            <div id="kanban-app" class="app-container">
+                
+                
+                <iframe src="kanbanBoard.html" class="app-iframe" frameborder="0"></iframe>
+            </div>
         </article>
 
         <hr>
         <footer>&copy; Internacionalna poslovno-informaciona akademija Tuzla</footer>
+
+        <script src="javascript.js"></script>
     </body>
 </html>
+Benjamin Hodžić - Novembar 2025

@@ -5,7 +5,10 @@ const dodajSlikuBtn = document.getElementById("dodajSliku");
 const spremiPlocuBtn = document.getElementById("spremiPlocu");
 const ucitajPlocuBtn = document.getElementById("ucitajPlocu");
 const ocistiPlocuBtn = document.getElementById("ocistiPlocu");
+<<<<<<< HEAD
 const snimiPDFBtn = document.getElementById("snimiPDF");
+=======
+>>>>>>> 7621e81abda39dfc54b3cae8add1c7df72476f74
 const fileInput = document.getElementById("fileInput");
 
 let trenutniElement = null;
@@ -184,6 +187,7 @@ function ocisti() {
     }
 }
 
+<<<<<<< HEAD
 // NOVA FUNKCIONALNOST: Snimi kao PDF
 snimiPDFBtn.addEventListener('click', () => {
     if (window.jspdf && window.jspdf.jsPDF && window.html2canvas) {
@@ -260,6 +264,8 @@ function snimiVisionBoardPDF() {
     });
 }
 
+=======
+>>>>>>> 7621e81abda39dfc54b3cae8add1c7df72476f74
 // Event listeneri
 dodajBiljeskuBtn.addEventListener('click', napraviBiljesku);
 dodajCitatBtn.addEventListener('click', napraviCitat);
@@ -270,6 +276,7 @@ ocistiPlocuBtn.addEventListener('click', ocisti);
 
 document.addEventListener('DOMContentLoaded', function() {
     
+<<<<<<< HEAD
 });
 
 const posaljiMailom = document.getElementById("posaljiMailom");
@@ -377,4 +384,6 @@ window.addEventListener("click", (e) => {
     if (e.target === mailModal) {
         mailModal.style.display = "none";
     }
+=======
+>>>>>>> 7621e81abda39dfc54b3cae8add1c7df72476f74
 });

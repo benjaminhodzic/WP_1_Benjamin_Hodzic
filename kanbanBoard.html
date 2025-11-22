@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Board</title>
+    <link rel="stylesheet" href="kanbanBoardCSS.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Kanban Board</h1>
+    </div>
+    
+    <div class="controls">
+        <button id="dodajZadatakBtn" class="btn">Novi Zadatak</button>
+        <button id="snimiPlocuBtn" class="btn">Snimi</button>
+        <button id="ocistiPlocuBtn" class="btn">Očisti Sve</button>
+        <button id="snimiPDFBtn" class="btn">Snimi PDF</button>
+        <button id="posaljiMailom" class="btn">Pošalji mailom</button>
+    </div>
+
+    <!-- POSTOJEĆI MODALI -->
+    <div id="taskModal" class="modal-wrap">
+        <div class="modal-box">
+            <h3>Dodaj Novi Zadatak</h3>
+            <input type="text" id="taskInput" placeholder="Šta treba uraditi?" />
+            <div class="modal-actions">
+                <button id="modalDodaj" class="btn">Dodaj</button>
+                <button id="modalPonisti" class="btn">Odustani</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="clearModal" class="modal-wrap">
+        <div class="modal-box">
+            <h3>Potvrda Brisanja</h3>
+            <p>Jesi li siguran da želiš obrisati sve zadatke?</p>
+            <div class="modal-actions">
+                <button id="clearDa" class="btn">Da, Obriši</button>
+                <button id="clearNe" class="btn">Ne, Zadrži</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIL MODAL -->
+    <div id="mailModal" class="modal-wrap">
+        <div class="modal-box">
+            <h3>Pošalji Kanban Board mailom</h3>
+            <input type="email" id="emailInput" placeholder="Unesite email adresu" />
+            <div class="modal-actions">
+                <button id="mailPosalji" class="btn">Pošalji</button>
+                <button id="mailPonisti" class="btn">Poništi</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="board-area">
+        <div class="column-card" data-status="todo">
+            <div class="column-header">
+                <h2>To Do</h2>
+                <span class="task-count">0</span>
+            </div>
+            <div class="tasks-container"></div>
+        </div>
+
+        <div class="column-card" data-status="progress">
+            <div class="column-header">
+                <h2>In Progress</h2>
+                <span class="task-count">0</span>
+            </div>
+            <div class="tasks-container"></div>
+        </div>
+
+        <div class="column-card" data-status="done">
+            <div class="column-header">
+                <h2>Done</h2>
+                <span class="task-count">0</span>
+            </div>
+            <div class="tasks-container"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Web programiranje 2025 • IPI Akademija</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="kanbanBoardJS.js"></script>
+</body>
+</html>

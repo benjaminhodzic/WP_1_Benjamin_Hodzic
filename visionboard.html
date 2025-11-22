@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Board</title>
+    <link rel="stylesheet" href="visionboardCSS.css">
+</head>
+<body>
+    <h1>Vision Board</h1>
+    
+    <div class="alatnica">
+        <button id="dodajBiljesku" class="alat">+ Post it</button>
+        <button id="dodajCitat" class="alat">+ Citat</button>
+        <button id="dodajSliku" class="alat">+ Slika</button>
+        <button id="spremiPlocu" class="alat">Spremi ploču</button>
+        <button id="ucitajPlocu" class="alat">Učitaj ploču</button>
+        <button id="ocistiPlocu" class="alat">Očisti ploču</button>
+        <button id="snimiPDF" class="alat">Snimi PDF</button>
+        <button id="posaljiMailom" class="alat">Pošalji mailom</button>
+    </div>
+
+    <div id="ploca" class="ploca"></div>
+
+    <p class="footer">Web programiranje 2025 © IPI Akademija</p>
+
+    <input type="file" id="fileInput" style="display:none">
+
+    <!-- Modal za slanje maila -->
+    <div id="mailModal" class="modal-wrap">
+        <div class="modal-box">
+            <h3>Pošalji Vision Board mailom</h3>
+            <input type="email" id="emailInput" placeholder="Unesite email adresu" />
+            <div class="modal-actions">
+                <button id="mailPosalji" class="btn">Pošalji</button>
+                <button id="mailPonisti" class="btn">Poništi</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="visionboardJS.js"></script>
+</body>
+</html>

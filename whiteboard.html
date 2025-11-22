@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiteboard</title>
+    <link rel="stylesheet" href="whiteboardCSS.css">
+</head>
+<body>
+    <div class="sve">
+        <h1><img src="resursi/marker.png" alt="marker" class="slika-naslova"> Moj Whiteboard</h1>
+        
+        <div class="alatnica">
+            <div class="grupa-alata">
+                <label for="boja">Boja:</label>
+                <input type="color" id="boja" value="#000000">
+            </div>
+            
+            <div class="grupa-alata">
+                <label for="velicina">Veličina:</label>
+                <input type="range" id="velicina" min="1" max="50" value="5">
+                <span id="prikazVelicine">5px</span>
+            </div>
+            
+            <button id="dugmeCrtaj" class="alat dugme-aktivno">Crtaj</button>
+            <button id="dugmeBrisi" class="alat">Briši</button>
+            <button id="dugmeOcisti" class="alat">Očisti</button>
+            <button id="dugmeSpremi" class="alat">Spremi sliku</button>
+            <button id="dugmePDF" class="alat">Snimi PDF</button>
+            <button id="posaljiMailom" class="alat">Pošalji mailom</button>
+        </div>
+        
+        <div class="kutija-za-plocu">
+            <canvas id="ploca"></canvas>
+        </div>
+        
+        <div class="dno">
+            <p>Web programiranje 2025/2026 © IPI Akademija Tuzla</p>
+        </div>
+    </div>
+
+    <!-- Modal za slanje maila -->
+    <div id="mailModal" class="modal-wrap">
+        <div class="modal-box">
+            <h3>Pošalji Whiteboard mailom</h3>
+            <input type="email" id="emailInput" placeholder="Unesite email adresu" />
+            <div class="modal-actions">
+                <button id="mailPosalji" class="btn">Pošalji</button>
+                <button id="mailPonisti" class="btn">Poništi</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="whiteboardJS.js"></script>
+</body>
+</html>

@@ -182,3 +182,125 @@ button
     border-radius:5px;
     
 }
+
+.contact-form {
+    max-width: 600px;
+    margin: 20px 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #c30f10;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 10px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #a00d0e;
+    text-decoration: none;
+}
+
+.btn-reset {
+    background-color: #6d6c6c;
+}
+
+.btn-reset:hover {
+    background-color: #5a5959;
+}
+
+.required {
+    color: #c30f10;
+}
+
+.form-note {
+    font-size: 11px;
+    color: #666;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Stil za dodatne informacije */
+.contact-info {
+    margin-top: 30px;
+    padding: 20px;
+    background: #ecf0f1;
+    border-radius: 8px;
+    border: 1px solid #bdc3c7;
+}
+
+.contact-info h3 {
+    color: #c30f10;
+    margin-top: 0;
+}
+
+.contact-info p {
+    margin: 8px 0;
+}
+
+/* Responsive dizajn za manje ekrane */
+@media (max-width: 768px) {
+    .contact-form {
+        margin: 15px 0;
+        padding: 15px;
+    }
+    
+    .form-actions {
+        text-align: center;
+    }
+    
+    .btn {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    fieldset {
+        width: 100%;
+    }
+}

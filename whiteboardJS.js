@@ -8,10 +8,7 @@ const dugmeCrtaj = document.getElementById("dugmeCrtaj");
 const dugmeBrisi = document.getElementById("dugmeBrisi");
 const dugmeOcisti = document.getElementById("dugmeOcisti");
 const dugmeSpremi = document.getElementById("dugmeSpremi");
-<<<<<<< HEAD
 const dugmePDF = document.getElementById("dugmePDF");
-=======
->>>>>>> 7621e81abda39dfc54b3cae8add1c7df72476f74
 
 let crtanje = false;
 let trenutnaBoja = boja.value;
@@ -120,7 +117,6 @@ dugmeSpremi.addEventListener("click", () => {
     document.body.removeChild(link);
 });
 
-<<<<<<< HEAD
 // NOVA FUNKCIONALNOST: Snimi kao PDF
 dugmePDF.addEventListener("click", () => {
     if (window.jspdf && window.jspdf.jsPDF) {
@@ -165,8 +161,6 @@ function snimiKaoPDF() {
     pdf.save("moj_whiteboard.pdf");
 }
 
-=======
->>>>>>> 7621e81abda39dfc54b3cae8add1c7df72476f74
 function azurirajDugmad() {
     if (brisanje) {
         dugmeBrisi.classList.add('dugme-aktivno');
@@ -182,7 +176,6 @@ function azurirajDugmad() {
 azurirajDugmad();
 
 ctx.fillStyle = "white";
-<<<<<<< HEAD
 ctx.fillRect(0, 0, ploca.width, ploca.height);
 
 const posaljiMailom = document.getElementById("posaljiMailom");
@@ -279,6 +272,3 @@ window.addEventListener("click", (e) => {
     if (e.target === modal) sakrijModal();
     if (e.target === clearModal) sakrijClearModal();
 });
-=======
-ctx.fillRect(0, 0, ploca.width, ploca.height);
->>>>>>> 7621e81abda39dfc54b3cae8add1c7df72476f74
